@@ -3,6 +3,7 @@ const morgan = require("morgan")
 const http = require("http")
 const mongoose = require("mongoose")
 const passport = require("passport")
+const bodyParser = require("body-parser")
 
 const config = require("./config")
 
@@ -16,13 +17,27 @@ connect.then((db) => {
 const app = express()
 app.use(morgan("dev"))
 app.use(express.json())
+app.use(bodyParser.urlencoded({ extended: false }))
 app.use(passport.initialize())
+app.use("*", (req, res, next) => {
+    res.setHeader("Content-Type", "application/json")
+    return next()
+})
 
 // Unauthenticated routes
 const authRouter = require("./routes/authRouter")
 app.use("/auth", authRouter)
 
 // Authenticated routes
+const auth = passport.authenticate('jwt', { session : false })
+const indexRouter = require("./routes/indexRouter")
+app.use("/", auth, indexRouter)
+
+// Handle errors
+app.use(function(err, req, res, next) {
+    res.status(err.status || 500)
+       .json({ error: err })
+})
 
 // Start the server
 const server = http.createServer(app)

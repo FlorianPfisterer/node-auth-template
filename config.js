@@ -1,5 +1,5 @@
 module.exports = {
-    dbUrl: "mongodb://localhost:27017",
+    dbUrl: "mongodb://localhost:27017/testdb",
 
     host: "localhost",
     port: 3000,
