@@ -1,15 +1,24 @@
 {
   "name": "auth-template",
   "version": "1.0.0",
-  "description": "\"A simple Node.js template that features JWT-based authentication with mongodb, mongoose, and passport\"",
+  "description": "Simple Node.js template that features JWT-based authentication using mongodb, mongoose, passport and express",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node index"
   },
   "repository": {
     "type": "git",
     "url": "."
   },
   "author": "Florian Pfisterer",
-  "license": "MIT"
+  "license": "MIT",
+  "dependencies": {
+    "express": "^4.16.3",
+    "jsonwebtoken": "^8.3.0",
+    "mongoose": "^5.2.7",
+    "morgan": "^1.9.0",
+    "passport": "^0.4.0",
+    "passport-jwt": "^4.0.0"
+  }
 }
