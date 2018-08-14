@@ -24,6 +24,10 @@ secure, which is because obviously no CA has signed our certificate
 but we did that ourselves. For development purposes though, a 
 self-signed certificate will do.
 
+Also note that when running the server on `localhost`, some applications
+such as Postman might require you to use `https://127.0.0.1:3443/` as
+the url, instead of just `https://localhost:3433`.
+
 ## Installation
 
 1. make sure you have node and npm installed

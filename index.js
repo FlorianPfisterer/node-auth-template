@@ -23,8 +23,6 @@ app.all("*", (req, res, next) => {
     if (req.secure) {
         return next()
     } else {
-        console.log("insecure");
-        
         res.redirect(307, `https://${req.hostname}:${config.securePort}${req.url}`)
     }
 })
