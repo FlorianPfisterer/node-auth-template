@@ -3,6 +3,7 @@ module.exports = {
 
     host: "localhost",
     port: 3000,
+    securePort: 3443,
 
     jwtSignSecretKey: "todo-change-this",
     jwtExpirySeconds: 3600

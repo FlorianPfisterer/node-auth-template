@@ -1,3 +1,7 @@
+# https certificates & keys 
+cert/cert.csr
+cert/certificate.pem
+cert/privatekey.pem
 
 # Created by https://www.gitignore.io/api/node,visualstudiocode
 
